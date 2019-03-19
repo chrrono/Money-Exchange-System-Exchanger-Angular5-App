@@ -1,0 +1,36 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a routerLink="/home" class="navbar-brand">Echanger App</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active"><a routerLink="/currencyState">Stan Walut</a></li>
+        <li routerLinkActive="active"><a routerLink="/message" >Message</a></li>
+        <!-- <li [ngClass]="{
+          'dropdown' : true,
+          'open' : isOpenMessage }" (click)="changeIsOpenMessage()">
+            <a style="cursor: pointer;" class="dropdown-toggle" data-toggle="dropdown" role="button">Komunikaty <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a style="cursor: pointer;" > Nowy </a></li>
+              <li><a style="cursor: pointer;" > Historia </a></li>
+            </ul> -->
+        <!-- </li> -->
+        <li [ngClass]="{
+            'dropdown' : true,
+            'open' : isOpenTransaction }" (click)="changeIsOpenTransaction()">
+              <a style="cursor: pointer;" class="dropdown-toggle" data-toggle="dropdown" role="button">Transakcje <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a routerLink="/transactions/newTransaction/0" style="cursor: pointer;"> Nowa </a></li>
+                <li><a routerLink="/transactions/history" style="cursor: pointer;"> Historia </a></li>
+              </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <!-- <li><a style="cursor: pointer;" (click)="onLoadData()">Wczytaj Dane</a> </li> -->
+        <li routerLinkActive="active"><a routerLink="/login" > Zaloguj </a></li>
+        <li routerLinkActive="active"><a style="cursor: pointer;" (click)="onLogout()" >Wyloguj</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

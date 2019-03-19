@@ -1,0 +1,22 @@
+<div>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div formGroupName="loginData">
+          <div class="row">
+            <div class="col-lg-4 col-md-5 col-sm-6 col-xs-4">
+                <div class="form-group">
+                  <label for="login"> Login :  </label>
+                  <input type="text" id="login" formControlName="login" class="form-control">
+                  <label for="password"> Hasło : </label>
+                  <input type="password" id="password" formControlName="password" class="form-control">
+                  <!-- <label for="login2"> Login 2 :  </label>
+                  <input type="text" id="login2" formControlName="login2" class="form-control">
+                  <label for="password2"> Hasło 2 : </label>
+                  <input type="password" id="password2" formControlName="password2" class="form-control"> -->
+                </div>
+            </div>
+          </div>
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="loginProcessing"> Zaloguj </button>
+      <button class="btn btn-danger" (click)="reset()"> Resetuj </button>
+    </form>
+  </div>

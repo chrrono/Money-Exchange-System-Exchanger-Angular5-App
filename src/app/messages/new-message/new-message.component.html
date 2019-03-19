@@ -1,0 +1,21 @@
+<div>
+  <form [formGroup]="messageForm" (ngSubmit)="SendMessage()">
+    <div formGroupName = "messageData">
+      <div class="form-group">
+        <label for="receiver"> Odbiorca: </label>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-3 col-xs-3">
+              <select class="custom-select" formControlName = "receiver" class="form-control">
+                <option [value]="rec" *ngFor="let rec of receivers"> {{ rec }} </option>
+              </select>
+            </div>
+        </div>
+        
+        <label for="content"> Treść </label>
+        <textarea rows="5" id="content" formControlName="content" class="form-control" (focus)="afterFirstFocus()"></textarea>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit"> Wyślij </button>
+    <button class="btn btn-danger" (click)="reset()"> Reset </button>
+  </form>
+</div>

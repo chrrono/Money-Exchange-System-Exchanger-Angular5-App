@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <h4>Transakcje kupna</h4>
+      <div style="height:500px;overflow-y:scroll;">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Czas</th>
+              <th scope="col">Waluta</th>
+              <th scope="col">Ilosc Waluty</th>
+              <th scope="col">kurs</th>
+              <th scope="col">Update</th>
+            </tr>
+          </thead>
+          <tbody>
+              <!-- | typeFilter:'Sell'; -->
+            <tr *ngFor="let transaction of transactionList | typeFilter:'Buy'; let i = index">
+                <td>{{transaction.id}}</td>
+                <td>{{transaction.time}}</td>
+                <td>{{transaction.currency}}</td>
+                <td>{{transaction.amountOfCurrency}}</td>
+                <td>{{transaction.rateOfExchange}}</td>
+                <td><button (click)="update(transaction.id)" class="btn btn-warning">Update</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <h4>Transakcje sprzedaży</h4>
+      <div style="height:500px;overflow-y:scroll;">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Czas</th>
+              <th scope="col">Waluta</th>
+              <th scope="col">Ilosc Waluty</th>
+              <th scope="col">kurs</th>
+              <th scope="col">Update</th>
+            </tr>
+          </thead>
+          <tbody>
+              <!-- | typeFilter:'Buy'; -->
+              <tr *ngFor="let transaction of transactionList | typeFilter:'Sell' let i = index">
+                  <td>{{transaction.id}}</td>
+                  <td>{{transaction.time}}</td>
+                  <td>{{transaction.currency}}</td>
+                  <td>{{transaction.amountOfCurrency}}</td>
+                  <td>{{transaction.rateOfExchange}}</td>
+                  <td><button class="btn btn-warning"
+                    (click)="update(transaction.id)">Update</button></td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

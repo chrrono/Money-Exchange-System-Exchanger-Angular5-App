@@ -1,0 +1,37 @@
+<div>
+  <form [formGroup]="transactionForm" (ngSubmit)="executeTransaction()">
+    <div class="container">
+      <div formGroupName="transactionData">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+                  <label for="currency"> Waluta </label>
+                  <select formControlName="currency"  class="form-control">
+                    <option [value]="currency" *ngFor="let currency of currencies"> {{currency}} </option>
+                  </select>
+                  <label for="type"> Typ </label>
+                  <select formControlName="type"  class="form-control">
+                    <option [value]="type" *ngFor="let type of types"> {{type}} </option>
+                  </select>
+                </div>
+          </div>
+          <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6">
+                <label for="amountOfCurrency"> Ilość Waluty </label>
+                <input type="text" id="amountOfCurrency" formControlName="amountOfCurrency" class="form-control" (blur)="convert()">
+                <label for="rateOfExchange"> Kurs wymiany </label>
+                <input type="text" id="rateOfExchange" formControlName="rateOfExchange" class="form-control" (blur)="convert()">
+                <label for="amountOfZlotych"> Ilość Złotówek </label>
+                <input type="text" id="amountOfZlotych" formControlName="amountOfZlotych" class="form-control">
+            </div>
+          </div> 
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn btn-primary" type="submit" [disabled]="editMode" > Zatwierdź </button>
+        <button class="btn btn-danger" (click)="reset()"> Odrzuć </button>
+        <button class="btn btn-primary" type="submit" [disabled]="!editMode" > Edytuj </button>
+      </div>
+    </div>
+  </form>
+</div>
